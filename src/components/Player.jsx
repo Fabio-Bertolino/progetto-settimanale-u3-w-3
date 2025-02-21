@@ -1,8 +1,12 @@
-import { Col, Image, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Button, Col, Image, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavouritesAction, removeFromFavouritesAction } from "../redux/actions";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const Player = () => {
   const selectSong = useSelector((state) => state.select.content);
+  const favourites = useSelector((state) => state.favourites.content);
+  const dispatch = useDispatch();
 
   return (
     <div className="row h-100">
@@ -47,7 +51,33 @@ const Player = () => {
               </div>
             </div>
           </Col>
-          <Col></Col>
+          <Col className="d-flex justify-content-center align-items-center">
+            {selectSong ? (
+              <>
+                {favourites.some((thisSong) => thisSong.id === selectSong.id) ? (
+                  <Button
+                    className="bg-transparent border-0"
+                    onClick={() => {
+                      dispatch(removeFromFavouritesAction(selectSong));
+                    }}
+                  >
+                    <HeartFill className="text-danger fs-5" />
+                  </Button>
+                ) : (
+                  <Button
+                    className="bg-transparent border-0"
+                    onClick={() => {
+                      dispatch(addToFavouritesAction(selectSong));
+                    }}
+                  >
+                    <Heart className="fs-5" />
+                  </Button>
+                )}
+              </>
+            ) : (
+              <></>
+            )}
+          </Col>
         </Row>
       </div>
     </div>

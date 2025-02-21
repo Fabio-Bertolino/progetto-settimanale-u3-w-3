@@ -71,7 +71,7 @@ const HomePage = () => {
                     </p>
                     {favourites.some((thisSong) => thisSong.id === song.id) ? (
                       <Button
-                        className="bg-dark"
+                        className="bg-dark border-0"
                         onClick={() => {
                           dispatch(removeFromFavouritesAction(song));
                         }}
@@ -119,7 +119,7 @@ const HomePage = () => {
                   </p>
                   {favourites.some((thisSong) => thisSong.id === song.id) ? (
                     <Button
-                      className="bg-dark"
+                      className="bg-dark border-0"
                       onClick={() => {
                         dispatch(removeFromFavouritesAction(song));
                       }}
@@ -164,7 +164,7 @@ const HomePage = () => {
                   </p>
                   {favourites.some((thisSong) => thisSong.id === song.id) ? (
                     <Button
-                      className="bg-dark"
+                      className="bg-dark border-0"
                       onClick={() => {
                         dispatch(removeFromFavouritesAction(song));
                       }}
@@ -209,7 +209,7 @@ const HomePage = () => {
                   </p>
                   {favourites.some((thisSong) => thisSong.id === song.id) ? (
                     <Button
-                      className="bg-dark"
+                      className="bg-dark border-0"
                       onClick={() => {
                         dispatch(removeFromFavouritesAction(song));
                       }}

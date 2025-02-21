@@ -5,6 +5,7 @@ import {
   fetchThirdRowSongsAction,
   addToFavouritesAction,
   removeFromFavouritesAction,
+  selectSongAction,
 } from "../redux/actions";
 import { useEffect } from "react";
 import { Alert, Button, Spinner } from "react-bootstrap";
@@ -16,7 +17,9 @@ const HomePage = () => {
   const thirdRowSongs = useSelector((state) => state.fetchSongs.thirdRowContent);
   const queryRowSongs = useSelector((state) => state.fetchSongs.queryRowContent);
   const isLoading = useSelector((state) => state.fetchSongs.isLoading);
-  //   const selectSong = useSelector((state) => state.select.content)
+
+  //   const selectSong = useSelector((state) => state.select.content);
+
   const dispatch = useDispatch();
 
   const favourites = useSelector((state) => state.favourites.content);
@@ -36,7 +39,6 @@ const HomePage = () => {
 
   return (
     <main className="col-12 col-md-9 offset-md-3 mainPage">
-      {console.log("CHE DIAMINE E" + thirdRowSongs + "...oops")}
       <div className="row">
         <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
           <a href="#">TRENDING</a>
@@ -55,12 +57,19 @@ const HomePage = () => {
               {queryRowSongs ? (
                 queryRowSongs.slice(0, 4).map((song) => (
                   <div key={song.id} className="col text-center">
-                    <img className="img-fluid" src={song.album.cover_medium} alt="track" />
+                    <img
+                      onClick={() => {
+                        dispatch(selectSongAction(song));
+                      }}
+                      className="img-fluid"
+                      src={song.album.cover_medium}
+                      alt="track"
+                    />
                     <p>
                       Track: {song.title} <br />
                       Artist: {song.artist.name}
                     </p>
-                    {favourites.some((job) => job.id === song.id) ? (
+                    {favourites.some((thisSong) => thisSong.id === song.id) ? (
                       <Button
                         className="bg-dark"
                         onClick={() => {
@@ -96,12 +105,19 @@ const HomePage = () => {
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {firstRowSongs.slice(0, 4).map((song) => (
                 <div key={song.id} className="col text-center">
-                  <img className="img-fluid" src={song.album.cover_medium} alt="track" />
+                  <img
+                    onClick={() => {
+                      dispatch(selectSongAction(song));
+                    }}
+                    className="img-fluid"
+                    src={song.album.cover_medium}
+                    alt="track"
+                  />
                   <p>
                     Track: {song.title} <br />
                     Artist: {song.artist.name}
                   </p>
-                  {favourites.some((job) => job.id === song.id) ? (
+                  {favourites.some((thisSong) => thisSong.id === song.id) ? (
                     <Button
                       className="bg-dark"
                       onClick={() => {
@@ -134,12 +150,19 @@ const HomePage = () => {
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {secondRowSongs.slice(0, 4).map((song) => (
                 <div key={song.id} className="col text-center">
-                  <img className="img-fluid" src={song.album.cover_medium} alt="track" />
+                  <img
+                    onClick={() => {
+                      dispatch(selectSongAction(song));
+                    }}
+                    className="img-fluid"
+                    src={song.album.cover_medium}
+                    alt="track"
+                  />
                   <p>
                     Track: {song.title} <br />
                     Artist: {song.artist.name}
                   </p>
-                  {favourites.some((job) => job.id === song.id) ? (
+                  {favourites.some((thisSong) => thisSong.id === song.id) ? (
                     <Button
                       className="bg-dark"
                       onClick={() => {
@@ -172,12 +195,19 @@ const HomePage = () => {
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {thirdRowSongs.slice(0, 4).map((song) => (
                 <div key={song.id} className="col text-center">
-                  <img className="img-fluid" src={song.album.cover_medium} alt="track" />
+                  <img
+                    onClick={() => {
+                      dispatch(selectSongAction(song));
+                    }}
+                    className="img-fluid"
+                    src={song.album.cover_medium}
+                    alt="track"
+                  />
                   <p>
                     Track: {song.title} <br />
                     Artist: {song.artist.name}
                   </p>
-                  {favourites.some((job) => job.id === song.id) ? (
+                  {favourites.some((thisSong) => thisSong.id === song.id) ? (
                     <Button
                       className="bg-dark"
                       onClick={() => {

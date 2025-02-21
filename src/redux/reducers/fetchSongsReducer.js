@@ -11,6 +11,7 @@ const initialState = {
   firstRowContent: [],
   secondRowContent: [],
   thirdRowContent: [],
+  queryRowContent: null,
   isLoading: false,
 };
 

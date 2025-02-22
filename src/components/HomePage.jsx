@@ -8,7 +8,7 @@ import {
   selectSongAction,
 } from "../redux/actions";
 import { useEffect } from "react";
-import { Alert, Button, Spinner } from "react-bootstrap";
+import { Alert, Button, Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const HomePage = () => {
@@ -38,30 +38,30 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main className="col-12 col-md-9 offset-md-3 mainPage">
-      <div className="row">
-        <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
+    <Col sm={12} md={9} className="offset-md-3 mainPage">
+      <Row>
+        <Col sm={9} lg={11} className=" mainLinks d-none d-md-flex">
           <a href="#">TRENDING</a>
           <a href="#">PODCAST</a>
           <a href="#">MOODS AND GENRES</a>
           <a href="#">NEW RELEASES</a>
           <a href="#">DISCOVER</a>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-10">
-          <div id="search">
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={10}>
+          <Container id="search">
             <h2>Search Artist</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+            <Row className="imgLinks py-3">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {queryRowSongs ? (
                 queryRowSongs.slice(0, 4).map((song) => (
-                  <div key={song.id} className="col text-center">
-                    <img
+                  <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                    <Image
+                      fluid
                       onClick={() => {
                         dispatch(selectSongAction(song));
                       }}
-                      className="img-fluid"
                       src={song.album.cover_medium}
                       alt="track"
                     />
@@ -88,28 +88,28 @@ const HomePage = () => {
                         <Heart />
                       </Button>
                     )}
-                  </div>
+                  </Col>
                 ))
               ) : (
                 <Alert variant="warning">No author searched!</Alert>
               )}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-10">
-          <div id="rock">
+            </Row>
+          </Container>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={10}>
+          <Container id="rock">
             <h2>Rock Classics</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="rockSection">
+            <Row className="imgLinks py-3" id="rockSection">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {firstRowSongs.slice(0, 4).map((song) => (
-                <div key={song.id} className="col text-center">
-                  <img
+                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                  <Image
+                    fluid
                     onClick={() => {
                       dispatch(selectSongAction(song));
                     }}
-                    className="img-fluid"
                     src={song.album.cover_medium}
                     alt="track"
                   />
@@ -136,25 +136,25 @@ const HomePage = () => {
                       <Heart />
                     </Button>
                   )}
-                </div>
+                </Col>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-10">
-          <div id="pop">
+            </Row>
+          </Container>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={10}>
+          <Container id="pop">
             <h2>Pop Culture</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="popSection">
+            <Row className="imgLinks py-3" id="popSection">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {secondRowSongs.slice(0, 4).map((song) => (
-                <div key={song.id} className="col text-center">
-                  <img
+                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                  <Image
+                    fluid
                     onClick={() => {
                       dispatch(selectSongAction(song));
                     }}
-                    className="img-fluid"
                     src={song.album.cover_medium}
                     alt="track"
                   />
@@ -181,25 +181,25 @@ const HomePage = () => {
                       <Heart />
                     </Button>
                   )}
-                </div>
+                </Col>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-10">
-          <div id="hiphop">
+            </Row>
+          </Container>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={10}>
+          <Container id="hiphop">
             <h2>#HipHop</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="hipHopSection">
+            <Row className="imgLinks py-3" id="hipHopSection">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {thirdRowSongs.slice(0, 4).map((song) => (
-                <div key={song.id} className="col text-center">
-                  <img
+                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                  <Image
+                    fluid
                     onClick={() => {
                       dispatch(selectSongAction(song));
                     }}
-                    className="img-fluid"
                     src={song.album.cover_medium}
                     alt="track"
                   />
@@ -226,13 +226,13 @@ const HomePage = () => {
                       <Heart />
                     </Button>
                   )}
-                </div>
+                </Col>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+            </Row>
+          </Container>
+        </Col>
+      </Row>
+    </Col>
   );
 };
 

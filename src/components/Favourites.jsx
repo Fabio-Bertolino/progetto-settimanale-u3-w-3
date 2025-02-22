@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavouritesAction, removeFromFavouritesAction, selectSongAction } from "../redux/actions";
-import { Alert, Button } from "react-bootstrap";
+import { Alert, Button, Col, Container, Image, Row } from "react-bootstrap";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 
 const Favourites = () => {
@@ -9,29 +9,29 @@ const Favourites = () => {
   const favourites = useSelector((state) => state.favourites.content);
 
   return (
-    <main className="col-12 col-md-9 offset-md-3 mainPage">
-      <div className="row">
-        <div className="col-9 col-lg-11 mainLinks d-none d-md-flex">
+    <Col sm={12} md={9} className="offset-md-3 mainPage">
+      <Row>
+        <Col sm={9} lg={11} className=" mainLinks d-none d-md-flex">
           <a href="#">TRENDING</a>
           <a href="#">PODCAST</a>
           <a href="#">MOODS AND GENRES</a>
           <a href="#">NEW RELEASES</a>
           <a href="#">DISCOVER</a>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-10">
-          <div id="favourites">
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={10}>
+          <Container id="favourites">
             <h2>Favourite songs</h2>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+            <Row className="imgLinks py-3">
               {favourites.length > 0 ? (
                 favourites.map((song) => (
-                  <div key={song.id} className="col text-center pb-3">
-                    <img
+                  <Col sm={6} lg={4} xl={3} key={song.id} className="text-center pb-3">
+                    <Image
+                      fluid
                       onClick={() => {
                         dispatch(selectSongAction(song));
                       }}
-                      className="img-fluid"
                       src={song.album.cover_medium}
                       alt="track"
                     />
@@ -58,18 +58,18 @@ const Favourites = () => {
                         <Heart />
                       </Button>
                     )}
-                  </div>
+                  </Col>
                 ))
               ) : (
                 <>
                   <Alert variant="warning">No favourites at the moment...</Alert>
                 </>
               )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+            </Row>
+          </Container>
+        </Col>
+      </Row>
+    </Col>
   );
 };
 

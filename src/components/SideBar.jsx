@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { fetchQueryRowSongsAction } from "../redux/actions";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -33,14 +34,14 @@ const SideBar = () => {
             <div className="navbar-nav">
               <ul>
                 <li>
-                  <a className="nav-item nav-link d-flex align-items-center" href="#">
+                  <Link to="/" className="nav-item nav-link d-flex align-items-center">
                     <i className="bi bi-house-door-fill"></i>&nbsp; Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="nav-item nav-link d-flex align-items-center" href="#">
+                  <Link to="/favourites" className="nav-item nav-link d-flex align-items-center" href="#">
                     <i className="bi bi-book-fill"></i>&nbsp; Your Library
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <div>

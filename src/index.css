@@ -158,7 +158,8 @@ ul {
 #rock,
 #pop,
 #hiphop,
-#search {
+#search,
+#favourites {
   color: white;
   font-weight: 700;
   padding-top: 50px;

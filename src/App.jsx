@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import SideBar from "./components/SideBar";
 import HomePage from "./components/Homepage";
 import Player from "./components/Player";
+import Favourites from "./components/Favourites";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <SideBar />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/favourites" element={<Favourites />} />
           </Routes>
         </Container>
         <Container fluid className="fixed-bottom bg-container pt-1">

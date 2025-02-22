@@ -9,8 +9,8 @@ const Player = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="row h-100">
-      <div className="col-lg-10 offset-lg-2">
+    <Row className="h-100">
+      <Col lg={10} className="offset-lg-2">
         <Row>
           <Col className="d-flex align-items-center">
             {selectSong ? (
@@ -26,30 +26,30 @@ const Player = () => {
             )}
           </Col>
           <Col>
-            <div className="row h-100 flex-column justify-content-center align-items-center">
-              <div className="col playerControls">
+            <Row className="h-100 flex-column justify-content-center align-items-center">
+              <Col className="playerControls">
                 <div className="d-flex">
                   <a href="#">
-                    <img src="assets/playerbuttons/shuffle.png" alt="shuffle" />
+                    <Image src="assets/playerbuttons/shuffle.png" alt="shuffle" />
                   </a>
                   <a href="#">
-                    <img src="assets/playerbuttons/prev.png" alt="prev" />
+                    <Image src="assets/playerbuttons/prev.png" alt="prev" />
                   </a>
                   <a href="#">
-                    <img src="assets/playerbuttons/play.png" alt="play" />
+                    <Image src="assets/playerbuttons/play.png" alt="play" />
                   </a>
                   <a href="#">
-                    <img src="assets/playerbuttons/next.png" alt="next" />
+                    <Image src="assets/playerbuttons/next.png" alt="next" />
                   </a>
                   <a href="#">
-                    <img src="assets/playerbuttons/repeat.png" alt="repeat" />
+                    <Image src="assets/playerbuttons/repeat.png" alt="repeat" />
                   </a>
                 </div>
                 <div className="progress mt-3">
                   <div role="progressbar"></div>
                 </div>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </Col>
           <Col className="d-flex justify-content-center align-items-center">
             {selectSong ? (
@@ -79,8 +79,8 @@ const Player = () => {
             )}
           </Col>
         </Row>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };
 

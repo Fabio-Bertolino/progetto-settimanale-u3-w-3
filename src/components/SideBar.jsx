@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Image, InputGroup, Navbar } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { fetchQueryRowSongsAction } from "../redux/actions";
 import { Link } from "react-router-dom";
@@ -13,13 +13,13 @@ const SideBar = () => {
   };
 
   return (
-    <div className="col col-2">
-      <nav className="navbar navbar-expand-md fixed-left justify-content-between" id="sidebar">
-        <div className="container flex-column align-items-start">
-          <a className="navbar-brand" href="index.html">
-            <img src="assets/logo/logo.png" alt="Spotify Logo" width="131" height="40" />
-          </a>
-          <button
+    <Col sm={2}>
+      <Navbar expand="md" className="fixed-left justify-content-between" id="sidebar">
+        <Container className="flex-column align-items-start">
+          <Link to="/" className="navbar-brand">
+            <Image src="assets/logo/logo.png" alt="Spotify Logo" width="131" height="40" />
+          </Link>
+          <Button
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -29,8 +29,8 @@ const SideBar = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          </Button>
+          <Navbar.Collapse id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <ul>
                 <li>
@@ -46,7 +46,7 @@ const SideBar = () => {
                 <li>
                   <div>
                     <Form onSubmit={handleSubmit}>
-                      <div className="input-group mt-3">
+                      <InputGroup className=" mt-3">
                         <Form.Control
                           type="search"
                           aria-label="Search"
@@ -58,25 +58,25 @@ const SideBar = () => {
                             GO
                           </Button>
                         </div>
-                      </div>
+                      </InputGroup>
                     </Form>
                   </div>
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
+          </Navbar.Collapse>
+        </Container>
         <div className="nav-btn">
-          <button className="btn signup-btn" type="button">
+          <Button id="signup-btn" className="d-block ms-4">
             Sign Up
-          </button>
-          <button className="btn login-btn" type="button">
+          </Button>
+          <Button id="login-btn" className="d-block ms-4">
             Login
-          </button>
-          <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
+          </Button>
+          <Link to="/404">Cookie Policy</Link> |<Link to="/404"> Privacy</Link>
         </div>
-      </nav>
-    </div>
+      </Navbar>
+    </Col>
   );
 };
 

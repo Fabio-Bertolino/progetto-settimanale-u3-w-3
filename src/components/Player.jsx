@@ -10,22 +10,22 @@ const Player = () => {
 
   return (
     <Row className="h-100">
-      <Col lg={10} className="offset-lg-2">
+      <Col lg={10} className="offset-lg-3">
         <Row>
           <Col className="d-flex align-items-center">
             {selectSong ? (
               <>
-                <Image src={selectSong.album.cover_small} alt={selectSong.title_short} />{" "}
-                <div className="d-flex flex-column justify-content-center ps-5">
-                  <h6 className="text-light">{selectSong.title}</h6>
-                  <p className="text-light m-0">{selectSong.artist.name}</p>
+                <Image src={selectSong.album.cover_small} alt={selectSong.title_short} />
+                <div className="d-flex flex-column justify-content-center ps-3">
+                  <h6 className="text-light d-none d-sm-block">{selectSong.title}</h6>
+                  <p className="text-light m-0 d-none d-md-block">{selectSong.artist.name}</p>
                 </div>
               </>
             ) : (
               <></>
             )}
           </Col>
-          <Col>
+          <Col xs={5} sm={4}>
             <Row className="h-100 flex-column justify-content-center align-items-center">
               <Col className="playerControls">
                 <div className="d-flex">

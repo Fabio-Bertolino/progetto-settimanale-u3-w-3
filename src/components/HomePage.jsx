@@ -56,7 +56,7 @@ const HomePage = () => {
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {queryRowSongs ? (
                 queryRowSongs.slice(0, 4).map((song) => (
-                  <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                  <Col sm={6} lg={4} xl={3} key={song.id} className="text-center pb-3">
                     <Image
                       fluid
                       onClick={() => {
@@ -104,7 +104,7 @@ const HomePage = () => {
             <Row className="imgLinks py-3" id="rockSection">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {firstRowSongs.slice(0, 4).map((song) => (
-                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center pb-3">
                   <Image
                     fluid
                     onClick={() => {
@@ -149,7 +149,7 @@ const HomePage = () => {
             <Row className="imgLinks py-3" id="popSection">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {secondRowSongs.slice(0, 4).map((song) => (
-                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center pb-3">
                   <Image
                     fluid
                     onClick={() => {
@@ -194,7 +194,7 @@ const HomePage = () => {
             <Row className="imgLinks py-3" id="hipHopSection">
               {isLoading && <Spinner animation="border" variant="light" className="d-block mx-auto" />}
               {thirdRowSongs.slice(0, 4).map((song) => (
-                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center">
+                <Col sm={6} lg={4} xl={3} key={song.id} className="text-center pb-3">
                   <Image
                     fluid
                     onClick={() => {
